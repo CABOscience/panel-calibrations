@@ -93,7 +93,7 @@ plot(all_wvls, type = 'l')
 abline(v=c(513,524))
 
 # find detector overlap regions
-all_wvls[512:525] # remove 513:524
+all_wvls[512:525] # remove 513:523
 rem1 <- all_wvls[513:523]
 
 all_wvls[768:775] # remove 769:774
@@ -155,7 +155,7 @@ ref_calib_wide <- ref_calib %>%
   spread(key = wvl, value = refl) %>%
   mutate(SN = ref_panel_id) %>%
   as.data.frame()
-ref_calib_spectra <- as.spectra(ref_calib_wide, name_idx = ncol(ref_calib_wide))
+ref_calib_spectra <- as_spectra(ref_calib_wide, name_idx = ncol(ref_calib_wide))
 plot(ref_calib_spectra)
 
 # resample to same wvls as target spectra
